@@ -27,7 +27,7 @@ class Calculator extends Component {
   }
 
   render() {
-    const { total, next, operation } = this.state;
+    const { total, operation, next } = this.state;
     return (
       <div id="calc-container" className="d-flex col">
         <div id="calc-results">
