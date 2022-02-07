@@ -24,7 +24,9 @@ export default function calculate(obj, buttonName) {
 
   if (isNumber(buttonName)) {
     if (buttonName === '0' && obj.next === '0') {
-      return {};
+      return {
+        total: '0',
+      };
     }
     // If there is an operation, update next
     if (obj.operation) {
@@ -74,7 +76,7 @@ export default function calculate(obj, buttonName) {
       };
     }
     // '=' with no operation, nothing to do
-    return {};
+    return { ...obj };
   }
 
   if (buttonName === '+/-') {
