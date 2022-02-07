@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
+// import operate from '../logic/operate';
+import calculate from '../logic/calculate';
 import './Calculator.css';
 
 class Calculator extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      total: '',
+      next: '',
+      operation: '',
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
     return (
       <div id="calc-container" className="d-flex col">
-        <div id="calc-results">0</div>
+        <div id="calc-results"> 0 </div>
         <div id="calc-line-1" className="calc-row d-flex">
           <button type="button" id="calc-btn-ac" className="btn-grey">AC</button>
           <button type="button" id="calc-btn-plusminus" className="btn-grey">+/-</button>
