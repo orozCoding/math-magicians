@@ -1,4 +1,5 @@
 import React from 'react';
+import './Calculator.css';
 
 const Calculator = () => (
   <div id="calc-container" className="d-flex col">
@@ -13,7 +14,7 @@ const Calculator = () => (
       <button type="button" id="calc-btn-7" className="btn-grey">7</button>
       <button type="button" id="calc-btn-8" className="btn-grey">8</button>
       <button type="button" id="calc-btn-9" className="btn-grey">9</button>
-      <button type="button" id="calc-btn-times" className="btn-orange">X</button>
+      <button type="button" id="calc-btn-times" className="btn-orange">x</button>
     </div>
     <div id="calc-line-3" className="calc-row d-flex">
       <button type="button" id="calc-btn-4" className="btn-grey">4</button>
