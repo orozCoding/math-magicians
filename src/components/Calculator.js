@@ -27,9 +27,14 @@ class Calculator extends Component {
   }
 
   render() {
+    const { total, next, operation } = this.state;
     return (
       <div id="calc-container" className="d-flex col">
-        <div id="calc-results"> 0 </div>
+        <div id="calc-results">
+          { total }
+          { operation }
+          { next }
+        </div>
         <div id="calc-line-1" className="calc-row d-flex">
           <button type="button" id="calc-btn-ac" className="btn-grey">AC</button>
           <button type="button" id="calc-btn-plusminus" className="btn-grey">+/-</button>
