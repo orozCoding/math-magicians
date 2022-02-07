@@ -42,6 +42,14 @@ export default function calculate(obj, buttonName) {
         total: '',
       };
     }
+
+    if (obj.total.includes('.')) {
+      return {
+        next: `${obj.total}${buttonName}`,
+        total: '',
+      };
+    }
+
     return {
       next: buttonName,
       total: '',
