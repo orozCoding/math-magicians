@@ -1,0 +1,46 @@
+#calc-container {
+  width: 300px;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+}
+
+#calc-results {
+  width: 100%;
+  color: white;
+  background-color: rgb(115, 116, 141);
+  text-align: end;
+  padding: 15px;
+}
+
+.calc-row {
+  width: 100%;
+}
+
+.btn-grey,
+.btn-orange {
+  width: 25%;
+  padding: 15px;
+  border: 1px solid rgb(211, 211, 211);
+  cursor: pointer;
+}
+
+.btn-grey {
+  background-color: rgb(240, 240, 240);
+}
+
+.btn-grey:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.btn-orange {
+  background-color: orange;
+}
+
+.btn-orange:hover {
+  background-color: rgb(255, 222, 160);
+}
+
+#calc-btn-0 {
+  width: 50%;
+}
