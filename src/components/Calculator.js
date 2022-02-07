@@ -14,6 +14,18 @@ class Calculator extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClick(value) {
+    if (value.total != null) {
+      this.setState({ total: value.total });
+    }
+
+    this.setState({ next: value.next });
+
+    if (value.operation != null) {
+      this.setState({ operation: value.operation });
+    }
+  }
+
   render() {
     return (
       <div id="calc-container" className="d-flex col">
