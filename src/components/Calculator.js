@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import operate from '../logic/operate';
 import calculate from '../logic/calculate';
 import './Calculator.css';
 
