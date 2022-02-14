@@ -3,6 +3,12 @@
 # Math-Magicians
 "Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) build with React a JavaScript Library. It allows users to: Make simple calculations and read a random math-related quote.
 
+### Preview
+
+![Preview1](./src/img/prev1.png)
+![Preview2](./src/img/prev2.png)
+![Preview3](./src/img/prev3.png)
+
 ## Built With
 
 - React
