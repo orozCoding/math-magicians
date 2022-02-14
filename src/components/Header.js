@@ -1,9 +1,13 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const Header = () => (
   <header>
     <div className="logo-container d-flex">
       <p className="logo">Math Magicians</p>
+    </div>
+    <div>
+      <Navbar />
     </div>
   </header>
 );
