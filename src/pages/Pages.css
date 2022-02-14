@@ -1,0 +1,28 @@
+.homeContainer {
+  align-items: center;
+  max-width: 95%;
+  gap: 30px;
+}
+
+.homeTitle {
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.calculatorPageContainer {
+  width: 70%;
+  justify-content: space-between;
+}
+
+.leftColumn {
+  align-self: flex-start;
+  font-size: 30px;
+}
+
+.quoteContainer {
+  width: 60%;
+}
+
+.quoteText {
+  font-size: 27px;
+}

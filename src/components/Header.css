@@ -1,0 +1,30 @@
+a,
+a::after,
+a::before,
+a:visited {
+  text-decoration: inherit;
+}
+
+#header {
+  align-self: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 60px;
+}
+
+ul {
+  list-style: none;
+}
+
+.navBar ul {
+  gap: 10px;
+}
+
+.activeLink {
+  color: red;
+}

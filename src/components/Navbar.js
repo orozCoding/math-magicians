@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Header.css';
 
 const Navbar = () => {
   const links = [
@@ -22,7 +23,7 @@ const Navbar = () => {
 
   return (
     <nav className="navBar">
-      <ul>
+      <ul className="d-flex">
         {links.map((link) => (
           <li key={link.id}>
             <NavLink to={link.path} className={(navData) => (navData.isActive ? 'activeLink' : 'none')}>{link.text}</NavLink>

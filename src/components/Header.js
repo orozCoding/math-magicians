@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 
 const Header = () => (
-  <header>
+  <header id="header" className="d-flex">
     <div className="logo-container d-flex">
       <p className="logo">Math Magicians</p>
     </div>
