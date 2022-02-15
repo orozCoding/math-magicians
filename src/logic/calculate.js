@@ -1,3 +1,4 @@
+import Big from 'big.js';
 import operate from './operate';
 
 function isNumber(item) {
@@ -16,7 +17,7 @@ function isNumber(item) {
 export default function calculate(obj, buttonName) {
   if (buttonName === 'AC') {
     return {
-      total: '',
+      total: '0',
       next: '',
       operation: '',
     };
@@ -24,34 +25,44 @@ export default function calculate(obj, buttonName) {
 
   if (isNumber(buttonName)) {
     if (buttonName === '0' && obj.next === '0') {
-      return {};
+      return {
+        total: '0',
+      };
     }
     // If there is an operation, update next
     if (obj.operation) {
       if (obj.next) {
-        return { next: obj.next + buttonName };
+        return { ...obj, next: obj.next + buttonName };
       }
-      return { next: buttonName };
+      return { ...obj, next: buttonName };
     }
     // If there is no operation, update next and clear the value
     if (obj.next) {
       return {
         next: obj.next + buttonName,
-        total: null,
+        total: '',
       };
     }
+
+    if (obj.total.includes('.')) {
+      return {
+        next: `${obj.total}${buttonName}`,
+        total: '',
+      };
+    }
+
     return {
       next: buttonName,
-      total: null,
+      total: '',
     };
   }
 
   if (buttonName === '.') {
     if (obj.next) {
       if (obj.next.includes('.')) {
-        return {};
+        return { ...obj };
       }
-      return { next: `${obj.next}.` };
+      return { ...obj, next: `${obj.next}.` };
     }
     if (obj.operation) {
       return { next: '0.' };
@@ -60,7 +71,7 @@ export default function calculate(obj, buttonName) {
       if (obj.total.includes('.')) {
         return {};
       }
-      return { total: `${obj.total}` };
+      return { total: `${obj.total}.` };
     }
     return { total: '0.' };
   }
@@ -69,20 +80,37 @@ export default function calculate(obj, buttonName) {
     if (obj.next && obj.operation) {
       return {
         total: operate(obj.total, obj.next, obj.operation),
-        next: null,
+        next: '',
         operation: '',
       };
     }
     // '=' with no operation, nothing to do
-    return {};
+    return { ...obj };
   }
 
   if (buttonName === '+/-') {
     if (obj.next) {
-      return { next: (-1 * parseFloat(obj.next)).toString() };
+      return { ...obj, next: (-1 * parseFloat(obj.next)).toString() };
     }
     if (obj.total) {
-      return { total: (-1 * parseFloat(obj.total)).toString() };
+      return { ...obj, total: (-1 * parseFloat(obj.total)).toString() };
+    }
+    return {};
+  }
+
+  if (buttonName === '%') {
+    if (obj.operation && obj.next) {
+      const result = operate(obj.total, obj.next, obj.operation);
+      return {
+        total: Big(result).div(Big('100')).toString(),
+        next: null,
+        operation: null,
+      };
+    }
+    if (obj.next) {
+      return {
+        next: Big(obj.next).div(Big('100')).toString(),
+      };
     }
     return {};
   }
@@ -95,11 +123,20 @@ export default function calculate(obj, buttonName) {
   //   return {};
   // }
 
+  // User pressed an operation after pressing '='
+  if (!obj.next && obj.total && !obj.operation) {
+    return { ...obj, operation: buttonName };
+  }
+
   // User pressed an operation button and there is an existing operation
   if (obj.operation) {
+    if (obj.total && !obj.next) {
+      return { ...obj, operation: buttonName };
+    }
+
     return {
       total: operate(obj.total, obj.next, obj.operation),
-      next: null,
+      next: '',
       operation: buttonName,
     };
   }
@@ -114,7 +151,7 @@ export default function calculate(obj, buttonName) {
   // save the operation and shift 'next' into 'total'
   return {
     total: obj.next,
-    next: null,
+    next: '',
     operation: buttonName,
   };
 }
