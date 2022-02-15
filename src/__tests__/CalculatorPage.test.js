@@ -1,16 +1,13 @@
 import React from 'react';
 import '@testing-library/react';
 import renderer from 'react-test-renderer';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Header from '../components/Header';
+import CalculatorPage from '../pages/CalculatorPage';
 
-describe('Renders Header', () => {
+describe('Renders CalculatorPage', () => {
   it('renders', () => {
     const tree = renderer
       .create(
-        <Router>
-          <Header />
-        </Router>,
+        <CalculatorPage />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
