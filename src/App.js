@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import Calculator from './components/Calculator';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './pages/Home';
+import CalculatorPage from './pages/CalculatorPage';
+import Quote from './pages/Quote';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div className="Calculator">
-        <Calculator />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <Header />
+    <div className="main d-flex col">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Calculator" element={<CalculatorPage />} />
+        <Route path="/Quote" element={<Quote />} />
+      </Routes>
+    </div>
+  </Router>
+);
 
 export default App;
