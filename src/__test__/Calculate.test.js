@@ -118,7 +118,7 @@ describe('User can get the final answer', () => {
       },
       '=',
     );
-    expect(result.total).toEqual(1);
+    expect(result.total).toEqual('1');
   });
 });
 
