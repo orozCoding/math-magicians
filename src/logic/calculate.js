@@ -1,3 +1,4 @@
+import Big from 'big.js';
 import operate from './operate';
 
 function isNumber(item) {
@@ -93,6 +94,23 @@ export default function calculate(obj, buttonName) {
     }
     if (obj.total) {
       return { ...obj, total: (-1 * parseFloat(obj.total)).toString() };
+    }
+    return {};
+  }
+
+  if (buttonName === '%') {
+    if (obj.operation && obj.next) {
+      const result = operate(obj.total, obj.next, obj.operation);
+      return {
+        total: Big(result).div(Big('100')).toString(),
+        next: null,
+        operation: null,
+      };
+    }
+    if (obj.next) {
+      return {
+        next: Big(obj.next).div(Big('100')).toString(),
+      };
     }
     return {};
   }
