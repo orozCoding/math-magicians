@@ -64,7 +64,7 @@ describe('User press % key', () => {
 });
 
 describe('User press +/- key', () => {
-  it('It percetage the number', () => {
+  it('It changes to negative the number', () => {
     expect(
       calculate(
         {
