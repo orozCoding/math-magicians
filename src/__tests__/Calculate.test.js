@@ -5,8 +5,8 @@ describe('User press AC key', () => {
     expect(
       calculate(
         {
-          total: '5',
-          next: '3',
+          total: '8',
+          next: '1',
           operation: '+',
         },
         'AC',
@@ -22,15 +22,15 @@ describe('User press AC key', () => {
     expect(
       calculate(
         {
-          total: '5',
-          next: '3',
+          total: '9',
+          next: '5',
           operation: '+',
         },
         'AC',
       ),
     ).not.toEqual({
-      total: '5',
-      next: '3',
+      total: '9',
+      next: '5',
       operation: '+',
     });
   });
@@ -41,19 +41,19 @@ describe('User press % key', () => {
     expect(
       calculate(
         {
-          next: '5',
+          next: '8',
         },
         '%',
       ),
     ).toEqual({
-      next: '0.05',
+      next: '0.08',
     });
   });
   it('It percetage the number', () => {
     expect(
       calculate(
         {
-          next: '5',
+          next: '8',
         },
         '%',
       ),
@@ -68,19 +68,19 @@ describe('User press +/- key', () => {
     expect(
       calculate(
         {
-          next: '5',
+          next: '9',
         },
         '+/-',
       ),
     ).toEqual({
-      next: '-5',
+      next: '-9',
     });
   });
   it('It percetage the number', () => {
     expect(
       calculate(
         {
-          next: '5',
+          next: '9',
         },
         '+/-',
       ),
@@ -92,7 +92,7 @@ describe('User press +/- key', () => {
 
 describe('User can enter a number', () => {
   it('Number from (0-9)', () => {
-    let buttonName = '8';
+    let buttonName = '3';
     let result = calculate(
       {
         total: '',
@@ -101,10 +101,10 @@ describe('User can enter a number', () => {
       },
       buttonName,
     );
-    expect(result.next).toEqual('8');
+    expect(result.next).toEqual('3');
     buttonName = '4';
     result = calculate(result, buttonName);
-    expect(result.next).toEqual('84');
+    expect(result.next).toEqual('34');
   });
 });
 
@@ -112,19 +112,19 @@ describe('User can get the final answer', () => {
   it(' When User press the (=) button', () => {
     const result = calculate(
       {
-        total: '4',
+        total: '10',
         next: '3',
         operation: '-',
       },
       '=',
     );
-    expect(result.total).toEqual('1');
+    expect(result.total).toEqual('7');
   });
 });
 
 describe('User can create a decimal', () => {
   it('When user press (.)', () => {
-    let buttonName = '8';
+    let buttonName = '88';
     let result = calculate(
       {
         total: '',
@@ -133,11 +133,11 @@ describe('User can create a decimal', () => {
       },
       buttonName,
     );
-    expect(result.next).toEqual('8');
+    expect(result.next).toEqual('88');
     buttonName = '.';
     result = calculate(result, buttonName);
     buttonName = '4';
     result = calculate(result, buttonName);
-    expect(result.next).toEqual('8.4');
+    expect(result.next).toEqual('88.4');
   });
 });
