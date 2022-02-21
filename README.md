@@ -12,7 +12,9 @@
 ## Live Version
 
 Check a live version of the app in the following links:
+
 [Netlify Deploy](https://math-magicinas.netlify.app/)
+
 [Heroku Deploy](https://math-magicinas.herokuapp.com/)
 
 ## Built With
