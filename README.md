@@ -9,6 +9,12 @@
 ![Preview2](./src/img/prev2.png)
 ![Preview3](./src/img/prev3.png)
 
+## Live Version
+
+Check a live version of the app in the following links:
+[Netlify Deploy](https://math-magicinas.netlify.app/)
+[Heroku Deploy](https://math-magicinas.herokuapp.com/)
+
 ## Built With
 
 - React
